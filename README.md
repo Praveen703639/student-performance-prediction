@@ -1,77 +1,170 @@
-# Student Performance Prediction
+<!-- ═══════════════════════════════════════════════════════════════════════ -->
+<!-- STUDENT PERFORMANCE PREDICTION — ML ENGINEERING SHOWCASE -->
+<!-- ═══════════════════════════════════════════════════════════════════════ -->
 
-<p align="center">
-  <b>End-to-End Machine Learning Regression Pipeline</b><br>
-  Predicting final student performance from demographic, academic, family, social, and lifestyle attributes.
-</p>
+<div align="center">
 
-<p align="center">
-  <img src="https://img.shields.io/badge/Python-3.x-3776AB?logo=python&logoColor=white" alt="Python">
-  <img src="https://img.shields.io/badge/scikit--learn-ML-F7931E?logo=scikit-learn&logoColor=white" alt="scikit-learn">
-  <img src="https://img.shields.io/badge/Pandas-Data%20Analysis-150458?logo=pandas&logoColor=white" alt="Pandas">
-  <img src="https://img.shields.io/badge/Pytest-Tests-0A9EDC?logo=pytest&logoColor=white" alt="Pytest">
-  <img src="https://img.shields.io/badge/Status-Completed-success" alt="Status">
-</p>
+<img src="https://capsule-render.vercel.app/api?type=venom&height=250&text=STUDENT%20PERFORMANCE&fontSize=46&fontColor=00F3FF&stroke=00F3FF&strokeWidth=2&desc=MACHINE%20LEARNING%20%7C%20REGRESSION%20%7C%20END-TO-END%20PIPELINE&descAlignY=68&descSize=15&theme=matrix" width="100%"/>
 
----
+<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=700&size=19&pause=900&color=00F3FF&center=true&vCenter=true&width=900&lines=End-to-End+Machine+Learning;Regression+%7C+Model+Comparison+%7C+Hyperparameter+Tuning;EDA+%7C+Cross-Validation+%7C+Feature+Analysis;Scikit-Learn+%7C+Pandas+%7C+Pytest;Built+as+a+Portfolio-Grade+ML+Engineering+Project" alt="Typing Animation"/>
 
-## Project Overview
+<br>
 
-This project builds a reproducible machine learning pipeline to predict a student's **final grade (`G3`)** using information available about the student such as study habits, previous failures, absences, parental education, social activities, and other demographic/lifestyle attributes.
+[![Python](https://img.shields.io/badge/PYTHON-3.x-0E1128?style=for-the-badge&logo=python&logoColor=00F3FF)](https://www.python.org/)
+[![scikit-learn](https://img.shields.io/badge/SCIKIT--LEARN-ML-F7931E?style=for-the-badge&logo=scikit-learn&logoColor=white)](https://scikit-learn.org/)
+[![Pandas](https://img.shields.io/badge/PANDAS-DATA%20ANALYSIS-150458?style=for-the-badge&logo=pandas&logoColor=white)](https://pandas.pydata.org/)
+[![Pytest](https://img.shields.io/badge/PYTEST-TESTED-0A9EDC?style=for-the-badge&logo=pytest&logoColor=white)](https://pytest.org/)
+[![Status](https://img.shields.io/badge/STATUS-COMPLETED-00F3FF?style=for-the-badge)](#)
 
-The project is deliberately designed as a **regression problem without using `G1` and `G2`**. This makes the experiment focused on estimating final performance from background and earlier-stage attributes rather than relying on intermediate grades that are strongly related to the final grade.
+</div>
 
-> **Portfolio focus:** This repository demonstrates the complete ML workflow — data preparation, exploratory analysis, preprocessing, baseline modeling, evaluation, cross-validation, hyperparameter tuning, feature analysis, reproducibility, and automated testing.
+<img src="https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png" width="100%">
 
----
+## 🧠 `PROJECT.BOOT()`
 
-## Key Results
+```python
+class StudentPerformanceML:
+    problem = "Predict final student grade (G3)"
+    learning_type = "Supervised Learning / Regression"
+    dataset = "UCI Student Performance"
+    input_features = 30
+    target = "G3"
 
-All metrics below are from the project's actual held-out test experiment.
+    pipeline = [
+        "Data Acquisition",
+        "Validation & EDA",
+        "Preprocessing",
+        "Model Comparison",
+        "Cross-Validation",
+        "Hyperparameter Tuning",
+        "Feature Analysis",
+        "Automated Testing",
+    ]
+```
 
-| Model | MAE ↓ | RMSE ↓ | R² ↑ |
-|---|---:|---:|---:|
-| Ridge | 2.0261 | 2.7753 | 0.2102 |
+> **A reproducible machine learning pipeline for estimating final student performance from demographic, academic, family, social, and lifestyle attributes — intentionally excluding intermediate grades `G1` and `G2`.**
+
+<div align="center">
+
+### ⚡ `QUICK.FACTS`
+
+| `649` | `30` | `56` | `5` | `5-FOLD` |
+|:---:|:---:|:---:|:---:|:---:|
+| Student Records | Input Features | Transformed Features | Models Compared | Cross-Validation |
+
+</div>
+
+<img src="https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png" width="100%">
+
+## 📊 `RESULTS.DASHBOARD`
+
+All metrics below come from the project's actual held-out test experiment.
+
+<div align="center">
+
+| MODEL | MAE ↓ | RMSE ↓ | R² ↑ |
+|:---|---:|---:|---:|
+| Ridge Regression | 2.0261 | 2.7753 | 0.2102 |
 | **Tuned Random Forest** | **1.9985** | **2.7557** | **0.2213** |
 | Gradient Boosting | 2.0774 | 2.8035 | 0.1940 |
 
-The tuned Random Forest produced the lowest measured MAE and RMSE among the tuned models in this experiment.
+<br>
 
-### Cross-Validation
+**5-FOLD TUNED RANDOM FOREST CV RMSE: `2.6476`**
 
-The tuned Random Forest achieved a **5-fold cross-validation RMSE of 2.6476** during hyperparameter search.
+</div>
 
-These numbers are experiment-specific and should not be interpreted as a guarantee of performance on a different population or dataset split.
+> These results are specific to this experiment and should not be treated as guaranteed performance on another population or dataset split.
 
----
+### 🔬 Baseline → Tuned
 
-## Dataset
+```text
+                    TEST RMSE                 TEST R²
 
-**UCI Machine Learning Repository — Student Performance**
+Dummy               3.1726                    -0.0322
+Linear Regression   2.8618                     0.1602
+Ridge               2.8580                     0.1624
+Random Forest       2.8128                     0.1887
+Gradient Boosting   2.7702                     0.2130
 
-- Dataset ID: `320`
-- 649 student records
-- 30 model input features
-- Target: `G3`
-- Two Portuguese schools
-- No missing values in the downloaded dataset
-- No duplicate records detected
+                         ↓
+                  HYPERPARAMETER
+                     SEARCH
+                         ↓
 
-### Target
+Tuned Ridge         2.7753                     0.2102
+Tuned Random Forest 2.7557                     0.2213
+Tuned Gradient      2.8035                     0.1940
+```
 
-`G3` represents the student's final grade.
+<img src="https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png" width="100%">
 
-### Why exclude `G1` and `G2`?
+## 🧬 `ML.PIPELINE`
 
-`G1` and `G2` are intermediate grades and are strongly correlated with `G3`. Including them would make the prediction task substantially different. This project therefore excludes both variables to study prediction from the remaining student attributes.
+```text
+                         ┌─────────────────────────┐
+                         │   UCI STUDENT DATASET   │
+                         └────────────┬────────────┘
+                                      │
+                                      ▼
+                         ┌─────────────────────────┐
+                         │   DATA ACQUISITION      │
+                         └────────────┬────────────┘
+                                      │
+                                      ▼
+                         ┌─────────────────────────┐
+                         │ VALIDATION + EDA        │
+                         └────────────┬────────────┘
+                                      │
+                                      ▼
+                         ┌─────────────────────────┐
+                         │ FEATURE / TARGET SPLIT  │
+                         └────────────┬────────────┘
+                                      │
+                                      ▼
+                         ┌─────────────────────────┐
+                         │    TRAIN / TEST 80/20   │
+                         └────────────┬────────────┘
+                                      │
+                    ┌─────────────────┴─────────────────┐
+                    ▼                                   ▼
+          ┌───────────────────┐               ┌───────────────────┐
+          │ NUMERICAL FEATURES│               │ CATEGORICAL       │
+          │                   │               │ FEATURES           │
+          │ Median Imputation │               │ Most-Frequent      │
+          │ StandardScaler    │               │ One-Hot Encoding   │
+          └─────────┬─────────┘               └─────────┬─────────┘
+                    └─────────────────┬─────────────────┘
+                                      ▼
+                         ┌─────────────────────────┐
+                         │   MODEL COMPARISON      │
+                         │ Dummy • Linear • Ridge  │
+                         │ RF • Gradient Boosting  │
+                         └────────────┬────────────┘
+                                      │
+                                      ▼
+                         ┌─────────────────────────┐
+                         │ 5-FOLD CROSS-VALIDATION │
+                         └────────────┬────────────┘
+                                      │
+                                      ▼
+                         ┌─────────────────────────┐
+                         │    GRIDSEARCHCV         │
+                         └────────────┬────────────┘
+                                      │
+                                      ▼
+                         ┌─────────────────────────┐
+                         │ TUNED MODEL EVALUATION  │
+                         └────────────┬────────────┘
+                                      │
+                         ┌────────────┴────────────┐
+                         ▼                         ▼
+                  Feature Importance       Reports / Artifacts
+```
 
-**Dataset:** https://archive.ics.uci.edu/dataset/320/student%2Bperformance
+<img src="https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png" width="100%">
 
-**Citation:** Cortez, P. (2008). *Student Performance* [Dataset]. UCI Machine Learning Repository. DOI: https://doi.org/10.24432/C5TG7T
-
----
-
-## Problem Definition
+## 🎓 `PROBLEM.DEFINITION`
 
 ### Objective
 
@@ -79,192 +172,136 @@ Given a student's available demographic, academic, family, social, and lifestyle
 
 > **Estimate the student's final grade (`G3`).**
 
-### Machine Learning Type
+### Why Regression?
 
-**Supervised Learning → Regression**
+`G3` is a numerical final grade, so the project predicts a continuous value rather than assigning the student to a discrete class.
 
-Why regression instead of classification?
+### Why exclude `G1` and `G2`?
 
-Because `G3` is a numerical grade and the project predicts its value rather than assigning the student to a discrete class.
+`G1` and `G2` are intermediate grades and are strongly correlated with `G3`. Excluding them creates a prediction setting based on the remaining student attributes rather than directly relying on previous grades.
 
----
+<img src="https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png" width="100%">
 
-## Machine Learning Pipeline
+## 🗂️ `DATASET`
 
-```text
-                         UCI Student Dataset
-                                  │
-                                  ▼
-                         Data Acquisition
-                                  │
-                                  ▼
-                         Data Validation
-                                  │
-                                  ▼
-                         Feature / Target Split
-                                  │
-                                  ▼
-                           Train / Test Split
-                              80% / 20%
-                                  │
-                 ┌────────────────┴────────────────┐
-                 ▼                                 ▼
-          Numerical Features                 Categorical Features
-                 │                                 │
-        Median Imputation                  Most-Frequent Imputation
-                 │                                 │
-          StandardScaler                    One-Hot Encoding
-                 │                                 │
-                 └────────────────┬────────────────┘
-                                  ▼
-                         Model Training
-                                  │
-              ┌───────────┬───────┼────────┬────────────┐
-              ▼           ▼       ▼        ▼            ▼
-           Dummy       Linear    Ridge   Random Forest  Gradient
-         Regressor   Regression          Regressor     Boosting
-                                  │
-                                  ▼
-                         Model Evaluation
-                    MAE • RMSE • R² • CV RMSE
-                                  │
-                                  ▼
-                       Hyperparameter Tuning
-                             GridSearchCV
-                                  │
-                                  ▼
-                        Tuned Model Evaluation
-                                  │
-                                  ▼
-                         Feature Importance
-                                  │
-                                  ▼
-                      Reports + Saved Artifacts
-```
+**UCI Machine Learning Repository — Student Performance**
 
----
+| Property | Value |
+|---|---|
+| Dataset ID | `320` |
+| Records | `649` |
+| Model Inputs | `30` |
+| Target | `G3` |
+| Schools | Two Portuguese schools |
+| Missing Values | None detected |
+| Duplicate Records | None detected |
 
-## Features
+**Dataset:** [UCI Student Performance](https://archive.ics.uci.edu/dataset/320/student%2Bperformance)
+
+**Citation:** Cortez, P. (2008). *Student Performance* [Dataset]. UCI Machine Learning Repository. DOI: [10.24432/C5TG7T](https://doi.org/10.24432/C5TG7T)
+
+<img src="https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png" width="100%">
+
+## 🧩 `FEATURES`
 
 ### Numerical / Ordinal
 
-`age`, `Medu`, `Fedu`, `traveltime`, `studytime`, `failures`, `famrel`, `freetime`, `goout`, `Dalc`, `Walc`, `health`, `absences`
+```text
+age • Medu • Fedu • traveltime • studytime • failures
+famrel • freetime • goout • Dalc • Walc • health • absences
+```
 
 ### Categorical
 
-`school`, `sex`, `address`, `famsize`, `Pstatus`, `Mjob`, `Fjob`, `reason`, `guardian`, `schoolsup`, `famsup`, `paid`, `activities`, `nursery`, `higher`, `internet`, `romantic`
+```text
+school • sex • address • famsize • Pstatus • Mjob • Fjob
+reason • guardian • schoolsup • famsup • paid • activities
+nursery • higher • internet • romantic
+```
 
 ### Target
 
-`G3`
-
----
-
-## Preprocessing Strategy
-
-The project uses a scikit-learn `ColumnTransformer` containing separate preprocessing pipelines for numerical and categorical features.
-
-### Numerical Pipeline
-
 ```text
-Numerical Features
-      ↓
-Median Imputation
-      ↓
-StandardScaler
+G3 → Final student grade
 ```
 
-### Categorical Pipeline
+<img src="https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png" width="100%">
+
+## ⚙️ `PREPROCESSING`
+
+The project uses a scikit-learn `ColumnTransformer` with separate pipelines for numerical and categorical data.
 
 ```text
-Categorical Features
-      ↓
-Most-Frequent Imputation
-      ↓
-OneHotEncoder(handle_unknown="ignore")
+NUMERICAL                         CATEGORICAL
+───────────                       ───────────
+      │                                 │
+      ▼                                 ▼
+Median Imputation              Most-Frequent Imputation
+      │                                 │
+      ▼                                 ▼
+StandardScaler                   OneHotEncoder
+                                      │
+                                      ▼
+                           handle_unknown = "ignore"
+      │                                 │
+      └──────────────┬──────────────────┘
+                     ▼
+               56 FEATURES
 ```
 
-### Why use a Pipeline?
-
-The preprocessing steps and model are combined into a single estimator. This is particularly important during cross-validation because transformations are fitted within the appropriate training folds instead of leaking validation information into the preprocessing stage.
-
-### Transformation Result
+### Transformation
 
 - Training samples: `519`
 - Test samples: `130`
 - Original input features: `30`
-- Transformed model features: `56`
+- Transformed features: `56`
 
----
+### Why use a Pipeline?
 
-## Models Evaluated
+Preprocessing and modeling are combined into a single estimator. During cross-validation, transformations are fitted inside the relevant training folds, helping prevent preprocessing leakage from validation data.
 
-| Model | Purpose |
+<img src="https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png" width="100%">
+
+## 🤖 `MODELS`
+
+| Model | Role in Experiment |
 |---|---|
-| Dummy Regressor | Establishes a simple baseline using the training mean |
-| Linear Regression | Tests a linear relationship between inputs and target |
+| Dummy Regressor | Simple mean-prediction baseline |
+| Linear Regression | Tests a linear relationship |
 | Ridge Regression | Linear model with L2 regularization |
-| Random Forest Regressor | Captures nonlinear relationships and feature interactions using an ensemble of trees |
-| Gradient Boosting Regressor | Sequential tree-based ensemble that learns from previous prediction errors |
+| Random Forest | Nonlinear ensemble of decision trees |
+| Gradient Boosting | Sequential tree-based ensemble |
 
----
+<img src="https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png" width="100%">
 
-## Evaluation Metrics
+## 📐 `EVALUATION`
 
 ### MAE — Mean Absolute Error
 
-Measures the average absolute difference between the predicted and actual grade.
-
-**Lower is better.**
+Average absolute difference between predicted and actual grades. **Lower is better.**
 
 ### RMSE — Root Mean Squared Error
 
-Measures the square root of the mean squared prediction error. Larger errors receive greater penalty than with MAE.
-
-**Lower is better.**
+Penalizes larger prediction errors more strongly. **Lower is better.**
 
 ### R² — Coefficient of Determination
 
-Measures how much target variance is explained relative to a mean-prediction baseline.
+Measures explained variance relative to a mean-prediction baseline. **Higher is better.**
 
-**Higher is better.**
+### Cross-Validation
 
----
-
-## Baseline Experiment
-
-Before tuning, five models were compared on the held-out test set:
-
-| Model | MAE | RMSE | R² |
-|---|---:|---:|---:|
-| Dummy Regressor | 2.3946 | 3.1726 | -0.0322 |
-| Linear Regression | 2.1564 | 2.8618 | 0.1602 |
-| Ridge | 2.1518 | 2.8580 | 0.1624 |
-| Random Forest | 2.0505 | 2.8128 | 0.1887 |
-| Gradient Boosting | 2.0744 | 2.7702 | 0.2130 |
-
-The baseline experiment established a reference point before hyperparameter tuning.
-
----
-
-## Cross-Validation
-
-The project uses **5-fold cross-validation** on the training data.
+A 5-fold split is used on the training data:
 
 ```text
-Training Data
-─────────────────────────────────────
-Fold 1 | Fold 2 | Fold 3 | Fold 4 | Fold 5
-  V        T        T        T        T
-  T        V        T        T        T
-  T        T        V        T        T
-  T        T        T        V        T
-  T        T        T        T        V
+          F1     F2     F3     F4     F5
+Fold 1    VAL    TR     TR     TR     TR
+Fold 2    TR     VAL    TR     TR     TR
+Fold 3    TR     TR     VAL    TR     TR
+Fold 4    TR     TR     TR     VAL    TR
+Fold 5    TR     TR     TR     TR     VAL
 ```
 
-This allows every training sample to participate in validation once while the model is trained on the remaining folds.
-
-Baseline CV RMSE results:
+Baseline CV RMSE:
 
 | Model | Mean CV RMSE | Std. Dev. |
 |---|---:|---:|
@@ -274,11 +311,11 @@ Baseline CV RMSE results:
 | Random Forest | 2.7238 | 0.3066 |
 | Gradient Boosting | 2.8876 | 0.2768 |
 
----
+<img src="https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png" width="100%">
 
-## Hyperparameter Tuning
+## 🎛️ `HYPERPARAMETER.TUNING`
 
-`GridSearchCV` was used to systematically evaluate predefined parameter combinations using 5-fold cross-validation.
+`GridSearchCV` systematically evaluates predefined parameter combinations using 5-fold cross-validation.
 
 ### Ridge
 
@@ -289,24 +326,22 @@ alpha = [0.01, 0.1, 1, 10, 100]
 ### Random Forest
 
 ```text
-n_estimators   = [200, 300]
-max_depth      = [None, 5, 10]
-min_samples_leaf = [1, 2, 4]
-max_features   = [0.7, 1.0]
+n_estimators      = [200, 300]
+max_depth         = [None, 5, 10]
+min_samples_leaf  = [1, 2, 4]
+max_features      = [0.7, 1.0]
 ```
 
 ### Gradient Boosting
 
 ```text
-n_estimators   = [100, 200]
-learning_rate  = [0.03, 0.05, 0.1]
-max_depth      = [2, 3]
-min_samples_leaf = [2, 4]
+n_estimators      = [100, 200]
+learning_rate     = [0.03, 0.05, 0.1]
+max_depth         = [2, 3]
+min_samples_leaf  = [2, 4]
 ```
 
 ### Selected Random Forest Configuration
-
-The measured best Random Forest configuration during the search was:
 
 ```text
 n_estimators      = 200
@@ -315,25 +350,13 @@ max_features      = 0.7
 min_samples_leaf  = 4
 ```
 
-Its best cross-validation RMSE during the search was approximately **2.6476**.
+Best measured CV RMSE during the search: **2.6476**.
 
----
+<img src="https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png" width="100%">
 
-## Tuned Model Results
+## 🔎 `FEATURE.IMPORTANCE`
 
-| Model | MAE | RMSE | R² |
-|---|---:|---:|---:|
-| Ridge | 2.0261 | 2.7753 | 0.2102 |
-| **Random Forest** | **1.9985** | **2.7557** | **0.2213** |
-| Gradient Boosting | 2.0774 | 2.8035 | 0.1940 |
-
-The tuned Random Forest had the strongest measured held-out metrics among these three tuned candidates in this experiment.
-
----
-
-## Feature Importance
-
-The tuned Random Forest's higher-importance features included:
+Top features from the tuned Random Forest:
 
 | Feature | Importance |
 |---|---:|
@@ -347,15 +370,13 @@ The tuned Random Forest's higher-importance features included:
 | `Medu` | 0.0293 |
 | `studytime` | 0.0283 |
 
-> **Important:** Feature importance represents model reliance, not causality. A high importance value does not prove that changing that feature would cause a student's grade to change.
+> **Important:** Feature importance represents model reliance, not causality. A high importance value does not prove that changing a feature would cause a student's grade to change.
 
----
+<img src="https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png" width="100%">
 
-## Exploratory Data Analysis
+## 📈 `EDA`
 
-The EDA stage investigates the structure of the data before and alongside modeling.
-
-Analyses include:
+The exploratory analysis examines the dataset before and alongside modeling:
 
 - Final grade distribution
 - Numeric feature correlations
@@ -363,12 +384,12 @@ Analyses include:
 - Absences vs final grade
 - Categorical group comparisons
 - Failure history analysis
-- Model comparison visualizations
-- Feature-importance visualization
+- Model comparison
+- Feature importance
 
-Some observed correlations with `G3` were:
+Selected numeric correlations with `G3`:
 
-| Feature | Correlation with G3 |
+| Feature | Correlation |
 |---|---:|
 | `studytime` | 0.2498 |
 | `Medu` | 0.2402 |
@@ -378,56 +399,78 @@ Some observed correlations with `G3` were:
 | `Walc` | -0.1766 |
 | `absences` | -0.0914 |
 
-Correlation and group averages describe associations in this dataset and should not be interpreted as causal relationships.
+Correlations and group averages describe associations in this dataset; they are not causal evidence.
 
----
+<img src="https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png" width="100%">
 
-## Repository Structure
+## 🧪 `ENGINEERING.PRACTICES`
+
+```text
+✓ Modular Python package structure
+✓ Reproducible train/test split (random_state=42)
+✓ ColumnTransformer + Pipeline
+✓ Numerical + categorical preprocessing
+✓ Multiple model comparison
+✓ 5-fold cross-validation
+✓ Grid-search hyperparameter tuning
+✓ Held-out test evaluation
+✓ Feature importance analysis
+✓ Automated tests with Pytest
+✓ Generated experiment reports
+✓ Git / GitHub version control
+✓ Clean .gitignore for generated artifacts
+```
+
+<img src="https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png" width="100%">
+
+## 📁 `CODEBASE.TOUR`
 
 ```text
 student-performance-prediction/
 │
 ├── data/
-│   ├── raw/                 # Raw dataset (not committed)
-│   └── processed/           # Processed data artifacts
+│   ├── raw/                 → Raw dataset (not committed)
+│   └── processed/           → Processed data artifacts
 │
-├── models/                  # Generated model artifacts (ignored by Git)
+├── models/                  → Generated model artifacts
 │
-├── notebooks/               # Optional exploratory notebooks
+├── notebooks/               → Optional exploratory notebooks
 │
 ├── reports/
-│   ├── figures/             # Generated visualizations
-│   └── results/             # Generated CSV experiment results
+│   ├── figures/             → Generated visualizations
+│   └── results/             → Experiment CSV results
 │
 ├── src/
-│   ├── analysis/            # Additional dataset analysis
-│   ├── data/                # Dataset acquisition
-│   ├── features/            # Feature engineering package
-│   ├── models/              # Training, evaluation, tuning
-│   ├── preprocessing/       # Data loading and preprocessing
-│   └── visualization/       # EDA and model plots
+│   ├── analysis/            → Dataset analysis modules
+│   ├── data/                → Dataset acquisition
+│   ├── features/            → Feature engineering package
+│   ├── models/              → Training / evaluation / tuning
+│   ├── preprocessing/       → Loading / splitting / preprocessing
+│   └── visualization/       → EDA / model visualizations
 │
-├── tests/                   # Automated tests
+├── tests/                   → Automated tests
 │
-├── .gitignore
 ├── requirements.txt
-├── run_pipeline.py          # One-command pipeline runner
+├── run_pipeline.py          → One-command pipeline runner
+├── .gitignore
 └── README.md
 ```
 
----
+<img src="https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png" width="100%">
 
-## Running Locally
+## 🚀 `RUN.LOCALLY`
 
-### 1. Open the repository
+### 1. Clone
 
 ```powershell
-cd D:\AI-ML-Projects\student-performance-prediction
+git clone https://github.com/Praveen703639/student-performance-prediction.git
+cd student-performance-prediction
 ```
 
-### 2. Activate the virtual environment
+### 2. Create / activate virtual environment
 
 ```powershell
+python -m venv .venv
 .\.venv\Scripts\Activate.ps1
 ```
 
@@ -437,15 +480,13 @@ cd D:\AI-ML-Projects\student-performance-prediction
 pip install -r requirements.txt
 ```
 
-### 4. Prepare the dataset
-
-The raw dataset is intentionally not committed to Git. Use the project's data acquisition module to obtain it:
+### 4. Download / prepare dataset
 
 ```powershell
 python -m src.data.download_data
 ```
 
-### 5. Run the complete pipeline
+### 5. Run everything
 
 ```powershell
 python run_pipeline.py
@@ -457,11 +498,9 @@ python run_pipeline.py
 pytest -v
 ```
 
----
+<img src="https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png" width="100%">
 
-## Pipeline Outputs
-
-After execution, the project produces:
+## 📦 `OUTPUTS`
 
 ```text
 models/
@@ -479,11 +518,11 @@ reports/
     └── feature_importance.csv
 ```
 
-Generated model binaries, report CSVs, figures, raw data, and the local virtual environment are excluded through `.gitignore`.
+Generated binaries, figures, report CSVs, raw data, caches, and the local virtual environment are excluded through `.gitignore`.
 
----
+<img src="https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png" width="100%">
 
-## Testing
+## 🧪 `TESTING`
 
 The preprocessing test suite verifies:
 
@@ -491,97 +530,93 @@ The preprocessing test suite verifies:
 - Expected features exist
 - Target values are within the expected range
 - Dataset contains no missing values
-- Feature/target separation has the expected shape
+- Feature / target separation has the expected shape
 
-Latest local test run:
+Latest local run:
 
 ```text
 5 passed
 ```
 
----
+<img src="https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png" width="100%">
 
-## Engineering Practices Demonstrated
-
-- Reproducible train/test split using `random_state=42`
-- Modular Python package structure
-- Scikit-learn `Pipeline`
-- Scikit-learn `ColumnTransformer`
-- Separate preprocessing for numerical/categorical data
-- Cross-validation
-- Grid-search hyperparameter tuning
-- Multiple model comparison
-- Automated testing with Pytest
-- Generated experiment reports
-- Git/GitHub version control
-- `.gitignore` management for generated and environment files
-
----
-
-## Limitations
+## ⚠️ `LIMITATIONS`
 
 - The dataset represents students from two Portuguese schools and may not generalize to other populations.
-- The available features do not capture every factor affecting student performance.
-- The final metrics come from a single held-out test split.
-- Feature importance should not be interpreted as causal evidence.
-- Excluding `G1` and `G2` intentionally makes the task harder and changes the prediction setting.
+- Available features do not capture every factor affecting student performance.
+- Final metrics come from a single held-out test split.
+- Feature importance is not causal evidence.
+- Excluding `G1` and `G2` intentionally changes the prediction setting and makes the task harder.
 
----
+<img src="https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png" width="100%">
 
-## Future Improvements
+## 🔮 `FUTURE.IMPROVEMENTS`
 
 - Compare additional regression algorithms
-- Perform systematic feature selection
-- Explore ensemble/stacking approaches
-- Add prediction intervals
-- Perform deeper error analysis across student groups
-- Add model explainability with SHAP
-- Build an interactive prediction interface
-- Add GitHub Actions CI
+- Try alternative feature engineering strategies
+- Evaluate additional cross-validation strategies
 - Add experiment tracking
+- Add CI-based automated testing
+- Add a lightweight prediction API / interface
+- Add model interpretability with SHAP or similar methods
 
----
+<img src="https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png" width="100%">
 
-## Tech Stack
+## 🛠️ `TECH.ARSENAL`
 
-`Python` · `Pandas` · `NumPy` · `Scikit-learn` · `Matplotlib` · `Seaborn` · `Joblib` · `Pytest` · `Jupyter`
+<div align="center">
 
----
+<img src="https://img.shields.io/badge/PYTHON-3776AB?style=for-the-badge&logo=python&logoColor=white" />
+<img src="https://img.shields.io/badge/PANDAS-150458?style=for-the-badge&logo=pandas&logoColor=white" />
+<img src="https://img.shields.io/badge/NUMPY-013243?style=for-the-badge&logo=numpy&logoColor=white" />
+<img src="https://img.shields.io/badge/SCIKIT--LEARN-F7931E?style=for-the-badge&logo=scikit-learn&logoColor=white" />
+<img src="https://img.shields.io/badge/MATPLOTLIB-11557C?style=for-the-badge" />
+<img src="https://img.shields.io/badge/SEABORN-4C72B0?style=for-the-badge" />
+<img src="https://img.shields.io/badge/PYTEST-0A9EDC?style=for-the-badge&logo=pytest&logoColor=white" />
+<img src="https://img.shields.io/badge/GIT-F05032?style=for-the-badge&logo=git&logoColor=white" />
 
-## What This Project Demonstrates
+<br><br>
 
-This repository is designed as an ML engineering portfolio project rather than a single training script. The emphasis is on understanding the complete lifecycle of a supervised learning experiment:
+`Machine Learning` · `Regression` · `EDA` · `Preprocessing` · `Cross-Validation` · `Hyperparameter Tuning` · `Feature Analysis`
+
+</div>
+
+<img src="https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png" width="100%">
+
+## 🎯 `WHAT.THIS.PROJECT.DEMONSTRATES`
 
 ```text
-Problem Definition
-      ↓
-Data Understanding
-      ↓
-EDA
-      ↓
-Preprocessing
-      ↓
-Baseline Models
-      ↓
-Evaluation
-      ↓
-Cross-Validation
-      ↓
-Hyperparameter Tuning
-      ↓
-Final Evaluation
-      ↓
-Feature Analysis
-      ↓
-Testing & Reproducibility
+DATA                    MODELING                 ENGINEERING
+────                    ────────                 ───────────
+UCI Dataset             Regression               Modular Structure
+Data Validation         Model Comparison         Reproducibility
+EDA                     Cross-Validation         Automated Tests
+Preprocessing           GridSearchCV             Git / GitHub
+Feature Analysis        Evaluation               Experiment Reports
 ```
 
----
+This repository is intended to demonstrate not only a trained model, but the **complete workflow used to build, evaluate, tune, test, and document a machine learning system.**
 
-## Author
+<img src="https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png" width="100%">
 
-**Praveen**
+## 👨‍💻 `AUTHOR`
 
-GitHub: https://github.com/Praveen703639
+<div align="center">
 
-This project was built as part of an AI/ML portfolio focused on practical machine learning and software engineering fundamentals.
+**Praveen703639**
+
+AI / ML • Software Engineering • Unreal Engine C++
+
+[![GitHub](https://img.shields.io/badge/GITHUB-Praveen703639-0A0A0A?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Praveen703639)
+
+</div>
+
+<img src="https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png" width="100%">
+
+<div align="center">
+
+### `BUILD → MEASURE → ANALYZE → IMPROVE`
+
+**Machine Learning Portfolio Project • 2026**
+
+</div>
